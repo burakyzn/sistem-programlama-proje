@@ -4,9 +4,12 @@ LIB=lib
 hepsi: onislem derle calistir
 onislem:
 	@mkdir -p $(LIB)
-	gcc -I ./include/ -o ./$(LIB)/message.o -c ./src/message.c
+	gcc -I ./include/ -o ./$(LIB)/fields.o -c ./src/fields.c
+	gcc -I ./include/ -o ./$(LIB)/jrb.o -c ./src/jrb.c
+	gcc -I ./include/ -o ./$(LIB)/jval.o -c ./src/jval.c
+	gcc -I ./include/ -o ./$(LIB)/jsonparser.o -c ./src/jsonparser.c
 derle:	
 	@mkdir -p $(BIN)
-	gcc -I ./include/ -o ./$(BIN)/output ./$(LIB)/message.o ./src/main.c
+	gcc -I ./include/ -o ./$(BIN)/output ./$(LIB)/fields.o ./$(LIB)/jrb.o ./$(LIB)/jval.o ./$(LIB)/jsonparser.o ./src/main.c
 calistir:
 	./bin/output

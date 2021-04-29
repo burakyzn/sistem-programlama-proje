@@ -9,13 +9,11 @@ JRB parse_json_file(){
   JRB   tree;
   IS    input_struct;
   int   nsize;
-  int   i;
   char *key;
   char *val;
 
   input_struct = new_inputstruct(NULL);
   tree = make_jrb();
-  i = 0;
   
   while (get_line(input_struct) >= 0) {
     if (input_struct->NF > 1) {

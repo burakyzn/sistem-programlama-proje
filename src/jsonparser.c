@@ -5,7 +5,7 @@
 @author: BERKAY ŞAHİN - G191210302
 @return: tree - jsondan cikarilmis key-val ciftlerinin bulundugu agaci geri dondurur.
 */
-JRB parse_json_file(){
+JRB parse_json_file(int p_parse_option){
   JRB   tree;
   IS    input_struct;
   int   nsize;
@@ -22,8 +22,13 @@ JRB parse_json_file(){
       else if(input_struct->fields[0][0] == '}')
         break;
 
-      key = find_key_or_val(input_struct->fields[0]);
-      val = find_key_or_val(input_struct->fields[1]);
+      if(p_parse_option == 1){
+        key = find_key_or_val(input_struct->fields[0]);
+        val = find_key_or_val(input_struct->fields[1]);
+      } else {
+        key = find_key_or_val(input_struct->fields[1]);
+        val = find_key_or_val(input_struct->fields[0]);
+      }
 
       jrb_insert_str(tree, key, new_jval_s(val));
     }

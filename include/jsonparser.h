@@ -7,7 +7,7 @@
 #include "jrb.h"
 #include "fields.h"
 
-extern JRB   parse_json_file();
+extern JRB   parse_json_file(int   p_parse_option);
 extern char *find_key_or_val(char *p_word);
 
 #endif

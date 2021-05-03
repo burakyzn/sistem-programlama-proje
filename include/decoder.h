@@ -17,6 +17,8 @@ dosyasi olarak verir.
 @author: Burak YAZAN - G171210395
 @param: p_tree - sifre-kelime eslerini tasiyan agac
 */
-extern void decode_file(JRB p_tree);
+extern void decode_file(JRB     p_tree,
+                        char   *p_inputFileName,
+                        char   *p_outputFileName);
 
 #endif

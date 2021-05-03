@@ -8,21 +8,23 @@ dosyasi olarak verir.
 @author: Burak YAZAN - G171210395
 @param: p_tree - kelime-sifre eslerini tasiyan agac
 */
-void encode_file(JRB p_tree){
+void encode_file(JRB    p_tree,
+                 char  *p_inputFileName,
+                 char  *p_outputFileName){
   IS  is;
   int i;
   int fd; 
   int sz;
 
-  is = new_inputstruct("giris_metin.txt");
+  is = new_inputstruct(p_inputFileName);
   if (is == NULL) {
-    perror("giris_metin.txt");
+    perror(p_inputFileName);
     exit(1);
   }
 
-  fd = open("cikis_metin.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+  fd = open(p_outputFileName, O_WRONLY | O_CREAT | O_TRUNC, 0644);
   if (fd < 0) { 
-    perror("cikis_metin.txt"); 
+    perror(p_outputFileName); 
     exit(1); 
   }
 

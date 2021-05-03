@@ -11,18 +11,23 @@ JRB parse_json_file(int p_parse_option){
   int   nsize;
   char *key;
   char *val;
+  char *kilit = ".kilit";
 
-  input_struct = new_inputstruct(NULL);
+  input_struct = new_inputstruct(kilit);
+  if(input_struct == NULL){
+    printf("Kilit dosyasi yok.\nCikis yapiliyor.\n");
+    exit(1);
+  }
+  
   tree = make_jrb();
   
   while (get_line(input_struct) >= 0) {
-    if (input_struct->NF > 1) {
-      if(input_struct->fields[0][0] == '{')
+    if(input_struct->fields[0][0] == '{')
         continue;
       else if(input_struct->fields[0][0] == '}')
         break;
 
-      if(p_parse_option == 1){
+    if(p_parse_option == 1){
         key = find_key_or_val(input_struct->fields[0]);
         val = find_key_or_val(input_struct->fields[1]);
       } else {
@@ -31,7 +36,6 @@ JRB parse_json_file(int p_parse_option){
       }
 
       jrb_insert_str(tree, key, new_jval_s(val));
-    }
   }
   
   jettison_inputstruct(input_struct);

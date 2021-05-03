@@ -13,13 +13,14 @@ int main(int   argc,
     if (strcmp(argv[1], "-e") == 0){
       tree = parse_json_file(1); 
       encode_file(tree, argv[2], argv[3]);
+      jrb_free_tree(tree);
     } else if (strcmp(argv[1], "-d") == 0) {
       tree = parse_json_file(0);
       decode_file(tree, argv[2], argv[3]);
+      jrb_free_tree(tree);
     } else {
        printf("Dogru komut girilmedi.\n");    
     }
-    jrb_free_tree(tree);
   } else {
     printf("Yeterli arguman girilmedi.\n");
   }

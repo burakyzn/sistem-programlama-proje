@@ -1,3 +1,26 @@
+# Hakkında
+Geliştirdiğimiz projemiz verilen anahtara göre giriş metnini kriptolayabilir veya kriptolanmış bir metni çözebilir. Çözmek için bir kilit dosyasına ihtiyaç duyar. Bu kilit dosyası Huffman Ağacı ile oluşmuş olmalıdır. Projemiz harici kütüphane olarak libfdr kütüphanesine bağımlıdır.
+
+# Kurulum
+
+### Projenin İndirilmesi
+```
+git clone https://github.com/burakyzn/sistem-programlama-proje.git
+```
+### Derleme
+```
+make
+```
+### Çalıştırma
+Şifrelemek için 
+```
+./output -e giris_metni cikis_metni
+```
+Şifreyi çözmek için
+```
+./output -d giris_metni cikis_metni
+```
+
 # Kod Standartları
 
 ### Genel Kurallar

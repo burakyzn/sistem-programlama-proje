@@ -16,24 +16,32 @@ void decode_file(JRB   p_tree,
   int fd; 
   int sz;
 
-  is = new_inputstruct(p_inputFileName);
-  if (is == NULL) {
-    perror(p_inputFileName);
-    exit(1);
-  }
-
   fd = open(p_outputFileName, O_WRONLY | O_CREAT | O_TRUNC, 0644);
   if (fd < 0) { 
     perror(p_outputFileName); 
     exit(1); 
   }
 
-  while(get_line(is) >= 0) { 
-    for (i = 0; i < is->NF; i++) { 
-      char *val = jrb_find_str(p_tree,is->fields[i])->val.s;
-      val = trim(val);
-      strcat(val, " ");
-      sz = write(fd, val, strlen(val));
+  is = new_inputstruct(p_inputFileName);
+  if (is == NULL) {
+    exit(1);
+  }
+
+  while(get_line(is) >= 0) {
+    for (i = 0; i < is->NF; i++) {
+      JRB node = jrb_find_str(p_tree,is->fields[i]);
+
+      if(node == NULL){
+        char *val = is->fields[i];
+        val = trim(val);
+        sz = write(fd, val, strlen(val));
+        sz = write(fd, " ", 1);
+      } else {
+        char *val = node->val.s;
+        val = trim(val);
+        sz = write(fd, val, strlen(val));
+        sz = write(fd, " ", 1);
+      }
     }
   }
 

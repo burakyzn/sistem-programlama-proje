@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "jrb.h"
-#include "fields.h"
+#include "../libfdr/jrb.h"
+#include "../libfdr/fields.h"
 
 typedef struct lastIndexStruct {
   int lastValue;

@@ -7,8 +7,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "jrb.h"
-#include "fields.h"
+#include "../libfdr/jrb.h"
+#include "../libfdr/fields.h"
 
 /*
 @description : Parametre olarak kelime-sifre eslerini tasiyan agaci alir ve bu agaci

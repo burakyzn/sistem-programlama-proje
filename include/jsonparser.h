@@ -7,7 +7,13 @@
 #include "jrb.h"
 #include "fields.h"
 
+typedef struct lastIndexStruct {
+  int lastValue;
+} *LV;
+
 extern JRB   parse_json_file(int   p_parse_option);
-extern char *find_key_or_val(char *p_word);
+extern char *find_key_or_val(char *p_word,
+                             int key_or_value,
+                             LV isLast);
 
 #endif

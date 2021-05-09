@@ -109,7 +109,5 @@ char *find_key_or_val(char *p_word, int key_or_value, LV isLast){
   return_word = (char *) malloc(sizeof(char)*(strlen(p_word) + 1));
   strcpy(return_word, p_word);
 
-  printf("%s\n", return_word);
-
   return return_word;
 }

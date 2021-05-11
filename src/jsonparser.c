@@ -35,7 +35,6 @@ JRB parse_json_file(int p_parse_option){
     if(input_struct->NF != 2)
     {
       printf("Hatalı kilit dosyası.\nCikis yapiliyor.\n");
-      printf("burada 1");
       exit(1);
     }
 
@@ -71,19 +70,19 @@ char *find_key_or_val(char *p_word, int key_or_value, LV isLast){
   if(key_or_value == 1 && p_word[lastCharIndex] == '\"')
     isLast->lastValue++;
 
-  if(isLast->lastValue > 1){printf("burada 2");
-    error = 1;}
+  if(isLast->lastValue > 1)
+    error = 1;
 
   if(p_word[0] == '\"'){
     if(key_or_value == 0){
-      if(p_word[lastCharIndex - 1] != '\"' || p_word[lastCharIndex] != ':'){printf("burada 3");
-        error = 1;}
+      if(p_word[lastCharIndex - 1] != '\"' || p_word[lastCharIndex] != ':')
+        error = 1;
       else
         breakIndex = lastCharIndex - 1;
     }else{
       if(isLast->lastValue == 0){
-        if(p_word[lastCharIndex - 1] != '\"' || p_word[lastCharIndex] != ','){printf("burada 4");
-          error = 1;}
+        if(p_word[lastCharIndex - 1] != '\"' || p_word[lastCharIndex] != ',')
+          error = 1;
         else
           breakIndex = lastCharIndex - 1;
       }else{
@@ -91,7 +90,6 @@ char *find_key_or_val(char *p_word, int key_or_value, LV isLast){
       }
     }
   }else{
-    printf("burada 5");
     error = 1;
   }
 

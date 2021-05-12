@@ -1,16 +1,28 @@
-CC = gcc
+CC=gcc
 LIB=lib
 FDR=libfdr
 
-hepsi: onislem derle
-onislem:
+make: object build
+
+object:
 	@mkdir -p $(LIB)
-	$(CC) -I ./include/ -o ./$(LIB)/fields.o -c ./$(FDR)/fields.c
-	$(CC) -I ./include/ -o ./$(LIB)/jrb.o -c ./$(FDR)/jrb.c
-	$(CC) -I ./include/ -o ./$(LIB)/jval.o -c ./$(FDR)/jval.c
-	$(CC) -I ./include/ -o ./$(LIB)/jsonparser.o -c ./src/jsonparser.c
-	$(CC) -I ./include/ -o ./$(LIB)/encoder.o -c ./src/encoder.c
-	$(CC) -I ./include/ -o ./$(LIB)/decoder.o -c ./src/decoder.c
-	$(CC) -I ./include/ -o ./$(LIB)/trim.o -c ./src/trim.c
-derle:	
-	$(CC) -I ./include/ -o ./kripto ./$(LIB)/fields.o ./$(LIB)/jrb.o ./$(LIB)/jval.o ./$(LIB)/jsonparser.o ./$(LIB)/encoder.o ./$(LIB)/decoder.o ./$(LIB)/trim.o ./src/main.c
+	$(CC) -o ./$(LIB)/fields.o -c ./$(FDR)/fields.c
+	$(CC) -o ./$(LIB)/jrb.o -c ./$(FDR)/jrb.c
+	$(CC) -o ./$(LIB)/jval.o -c ./$(FDR)/jval.c
+	$(CC) -o ./$(LIB)/jsonparser.o -c ./jsonparser.c
+	$(CC) -o ./$(LIB)/encoder.o -c ./encoder.c
+	$(CC) -o ./$(LIB)/decoder.o -c ./decoder.c
+	$(CC) -o ./$(LIB)/trim.o -c ./trim.c
+
+build:	
+	$(CC) -o ./kripto ./$(LIB)/fields.o ./$(LIB)/jrb.o ./$(LIB)/jval.o ./$(LIB)/jsonparser.o ./$(LIB)/encoder.o ./$(LIB)/decoder.o ./$(LIB)/trim.o main.c
+
+clean: 
+	rm -rf lib kripto
+
+cleanall: clean
+	rm -rf .kilit encripted decripted *.txt ornek_metin
+
+run : clean make
+	./kripto -e ornek_metin encripted
+	./kripto -d encripted decripted

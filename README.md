@@ -8,17 +8,32 @@ Geliştirdiğimiz projemiz verilen anahtara göre giriş metnini kriptolayabilir
 git clone https://github.com/burakyzn/sistem-programlama-proje.git
 ```
 ### Derleme
+Projeyi derler ve kripto isimli çalıştırılabilir dosyayı oluşturur.
 ```
 make
 ```
-### Çalıştırma
+Derleme esnasında oluşan tüm dosyaları siler (*.o ve kripto)
+```
+make clean 
+```
+Derleme sırasında oluşan dosyaların yanı sıra .kilit, encripted, decripted,
+ornek_metin, *txt isimli dosyalar var ise hepsini siler.
+```
+make cleanall
+```
+Clean ile temizler make ile derler ve iki komutuda sırasıyla çalıştırarak örnek metinden encripted ve decripted dosyaları üretir.
+```
+make run
+```
+
+### Kripto'nun Yürütülmesi
 Şifrelemek için 
 ```
-./output -e giris_metni cikis_metni
+./kripto -e ornek_metin encripted
 ```
 Şifreyi çözmek için
 ```
-./output -d giris_metni cikis_metni
+./kripto -d encripted decripted
 ```
 
 # Kod Standartları

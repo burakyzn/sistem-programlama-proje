@@ -1,5 +1,6 @@
 # Runable
 bin/*
+tests/executable/*
 
 # Prerequisites
 *.d

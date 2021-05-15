@@ -9,22 +9,42 @@ git clone https://github.com/burakyzn/sistem-programlama-proje.git
 ```
 ### Derleme
 Projeyi derler ve kripto isimli çalıştırılabilir dosyayı oluşturur.
+
 ```
 make
 ```
-Derleme esnasında oluşan tüm dosyaları siler (*.o ve kripto)
+![image](https://user-images.githubusercontent.com/44683436/118363938-42330700-b59f-11eb-9e58-0084fb35556d.png)
+---
+
+Derleme esnasında oluşan tüm dosyaları siler (*.o ve kripto).
+
 ```
 make clean 
 ```
+![image](https://user-images.githubusercontent.com/44683436/118364039-84f4df00-b59f-11eb-9560-5a3259faf907.png)
+---
+
 Derleme sırasında oluşan dosyaların yanı sıra .kilit, encripted, decripted,
 ornek_metin, *txt isimli dosyalar var ise hepsini siler.
+
 ```
 make cleanall
 ```
+![image](https://user-images.githubusercontent.com/44683436/118364129-cdac9800-b59f-11eb-97e4-881178fa6e08.png)
+---
 Clean ile temizler make ile derler ve iki komutuda sırasıyla çalıştırarak örnek metinden encripted ve decripted dosyaları üretir.
+
 ```
 make run
 ```
+![image](https://user-images.githubusercontent.com/44683436/118364114-be2d4f00-b59f-11eb-9bff-58a72dd3f407.png)
+---
+Proje için yazılmış olan birim testlerini çalıştırır.
+
+```
+make test
+```
+![image](https://user-images.githubusercontent.com/44683436/118363888-14e65900-b59f-11eb-8fbe-a1d44a29e5bb.png)
 
 ### Kripto'nun Yürütülmesi
 Şifrelemek için 

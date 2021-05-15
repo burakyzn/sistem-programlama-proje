@@ -14,7 +14,7 @@ CESTER_MOCK_FUNCTION(trim(char *p_word), char*,
 geri dondurmesi basari olcutumuzdur.
 @author: MAFTUN HASHIMLI - G18120554
 */
-CESTER_TEST(check_mocked_function, test_instance,
+CESTER_TEST(trim_fonksiyonu_sag_ve_sol_bosluklari_siliyor_mu, test_instance,
      char *p_word = "  Maftun ";
      char *trimed = trim(p_word);
     cester_assert_str_equal(trimed, "Maftun");
@@ -23,7 +23,7 @@ CESTER_TEST(check_mocked_function, test_instance,
 @description : Trim fonksiyonunun eger karakter dizisi NULL degilse NULL dondurmemesi basari olctumuzdur.
 @author: MAFTUN HASHIMLI - G18120554
 */
-CESTER_TEST(test_assert_not_equal, test_instance, 
+CESTER_TEST(trim_fonksiyonu_donus_degeri_dogru_mu, test_instance, 
     char *p_word = "  Maftun ";
      char *trimed = trim(p_word);
     cester_assert_not_equal(NULL, trimed);
@@ -32,7 +32,7 @@ CESTER_TEST(test_assert_not_equal, test_instance,
 @description : Trim fonksiyonunun verilen karakter dizisinin boyutunu dogru dondurmesi basari olcutumuzdur.
 @author: MAFTUN HASHIMLI - G18120554
 */
-CESTER_TEST(test_assert_cmp_int, test_instance, 
+CESTER_TEST(trim_fonksiyonu_donus_degeri_uzunlugu_dogru_mu, test_instance, 
     char *p_word = "  Maftun ";
     cester_assert_int_eq(6, strlen(trim(p_word)));
 )

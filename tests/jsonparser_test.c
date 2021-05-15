@@ -14,7 +14,7 @@ CESTER_MOCK_FUNCTION(parse_json_file(int p_parse_option), JRB,
 /*
 @description :parse_json_file fonksiyonunun geriye NULL dondurmemesi basari olucutumuzdur.
 @author: MAFTUN HASHIMLI - G18120554
-*/trim_fonksiyonu_donus_degeri_uzunlugu_dogru_mu
+*/
 CESTER_TEST(json_parse_fonksiyonu_null_deger_donduremez, test_instance,
     JRB tree;
     JRB tmp;

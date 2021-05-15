@@ -36,7 +36,7 @@ testclean:
 testbuild: 
 	@mkdir -p ./tests/$(EXE)	
 	$(CC) ./tests/trim_test.c -I. -Wl,--wrap=trim -o ./tests/$(EXE)/trim_test
-	$(CC) ./tests/jsonparsertest.c -I. -Wl,--wrap=parse_json_file -o ./tests/$(EXE)/jsonparser_test
+	$(CC) ./tests/jsonparser_test.c -I. -Wl,--wrap=parse_json_file -o ./tests/$(EXE)/jsonparser_test
 
 test: testclean testbuild 
 	./tests/executable/trim_test --cester-verbose

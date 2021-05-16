@@ -2,9 +2,8 @@ CC=gcc
 LIB=lib
 FDR=libfdr
 EXE=executable
-OBJS = ./libfdr/fields.o ./libfdr/jval.o ./libfdr/jrb.o
 
-make: libfdr.a object build
+make: object build
 
 object: 
 	@mkdir -p $(LIB)
@@ -12,10 +11,6 @@ object:
 	$(CC) -o ./$(LIB)/encoder.o -c ./encoder.c
 	$(CC) -o ./$(LIB)/decoder.o -c ./decoder.c
 	$(CC) -o ./$(LIB)/trim.o -c ./trim.c
-
-libfdr.a: $(OBJS)
-	ar ru ./libfdr/libfdr.a $(OBJS)
-	ranlib ./libfdr/libfdr.a 
 
 build:	
 	$(CC) -o ./kripto ./$(LIB)/jsonparser.o ./$(LIB)/encoder.o ./$(LIB)/decoder.o ./$(LIB)/trim.o ./$(FDR)/libfdr.a main.c

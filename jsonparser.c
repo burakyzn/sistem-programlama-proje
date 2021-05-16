@@ -26,11 +26,21 @@ JRB parse_json_file(int p_parse_option){
   tree = make_jrb();
 
   isLast->lastValue = 0;
+  int curlyBracesOpen = 0;
+  int curlyBracesClose = 0;
+  
   while (get_line(input_struct) >= 0) {
-    if(input_struct->fields[0][0] == '{')
+	if(input_struct->NF < 1)
+		continue;
+		
+    if(input_struct->fields[0][0] == '{' && input_struct->NF == 1){
+		curlyBracesOpen++;
         continue;
-      else if(input_struct->fields[0][0] == '}')
-        break;
+	}
+    else if(input_struct->fields[0][0] == '}' && input_struct->NF == 1){
+		curlyBracesClose++;
+        continue;
+	}
 
     if(input_struct->NF != 2)
     {
@@ -47,6 +57,11 @@ JRB parse_json_file(int p_parse_option){
       }
 
       jrb_insert_str(tree, key, new_jval_s(val));
+  }
+  
+  if(curlyBracesOpen != 1 || curlyBracesClose != 1){
+	  printf("Hatalı kilit dosyası.\nKilit JSON dosyalari sadece birer tane { ile baslayip } ile sonlanmali.\nCikis yapiliyor.\n");
+      exit(1);
   }
   
   free(isLast);
